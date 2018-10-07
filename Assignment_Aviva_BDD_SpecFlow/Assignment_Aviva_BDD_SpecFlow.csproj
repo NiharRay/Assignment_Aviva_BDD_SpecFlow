@@ -45,7 +45,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
     <Reference Include="TechTalk.SpecFlow, Version=2.2.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
       <HintPath>..\packages\SpecFlow.2.2.0\lib\net45\TechTalk.SpecFlow.dll</HintPath>
       <Private>True</Private>
@@ -76,13 +78,18 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Actions\CommonAction.cs" />
+    <Compile Include="Actions\GoogleSearchEngineAction.cs" />
+    <Compile Include="ConfigDataManipulation\TestData.cs" />
     <Compile Include="GoogleSearchResult.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GoogleSearchResult.feature</DependentUpon>
     </Compile>
-    <Compile Include="Helper\SeleniumHelper.cs" />
+    <Compile Include="Helper\DriverHelper.cs" />
+    <Compile Include="Helper\Hooks.cs" />
     <Compile Include="Helper\Validation.cs" />
+    <Compile Include="PageFactory\GoogleSearchEnginePage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StepDefination\GoogleSearchResultSteps.cs" />
   </ItemGroup>
@@ -104,6 +111,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

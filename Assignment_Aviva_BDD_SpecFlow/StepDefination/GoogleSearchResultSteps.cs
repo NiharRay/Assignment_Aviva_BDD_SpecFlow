@@ -1,24 +1,44 @@
 ﻿using System;
 using TechTalk.SpecFlow;
 using Assignment_Aviva_BDD_SpecFlow.Helper;
+using Assignment_Aviva_BDD_SpecFlow.PageFactory;
+using Assignment_Aviva_BDD_SpecFlow.Actions;
 
 namespace Assignment_Aviva_BDD_SpecFlow.StepDefination
 {
     [Binding]
     public class GoogleSearchResultSteps
     {
-        private SeleniumHelper googleSearchEngineResult = new SeleniumHelper();
+        private GoogleSearchEnginePage googleSearchEnginePage = new GoogleSearchEnginePage();
+        Validation validate = new Validation();
+        bool isDataNotProper = false;
 
         [Given(@"I launch '(.*)'")]
         public void GivenILaunch(string url)
         {
-            googleSearchEngineResult.LaunchBrowser(url);
+            DriverHelper.driver.Navigate().GoToUrl(url);
+            Console.WriteLine("");
         }
 
         [When(@"I provide '(.*)' keyword to search")]
         public void WhenIProvideKeywordToSearch(string keyword)
         {
-            googleSearchEngineResult.SetSearchKeyword(keyword);
+            try
+            {
+                string validationMessageSearchKeyword = validate.ValidateSearchKeyword(keyword.Trim());
+                if (validationMessageSearchKeyword != "0")
+                {
+                    isDataNotProper = true;
+                    throw new Exception(validationMessageSearchKeyword);
+                }
+                new GoogleSearchEngineAction().TriggerSearch(googleSearchEnginePage, keyword);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("--------------------------------------------------------------------------------");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("--------------------------------------------------------------------------------");
+            }
         }
 
         [Then(@"I should get (.*)th result url")]
@@ -26,9 +46,18 @@ namespace Assignment_Aviva_BDD_SpecFlow.StepDefination
         {
             try
             {
-                Console.WriteLine("--------------------------------------------------------------------------------");
-                Console.WriteLine("The url of fifth result is : " + googleSearchEngineResult.GetSearchResult(index));
-                Console.WriteLine("--------------------------------------------------------------------------------");
+                if (!isDataNotProper)
+                {
+                    string validationMessageSequenceNumber = validate.ValidateSequenceNo(index);
+                    if (validationMessageSequenceNumber != "0")
+                    {
+                        throw new Exception(validationMessageSequenceNumber);
+                    }
+                    Console.WriteLine("--------------------------------------------------------------------------------");
+                    Console.WriteLine("The url of fifth result is : " + googleSearchEnginePage.SearchResult[index - 1].GetAttribute("href"));
+                    Console.WriteLine("--------------------------------------------------------------------------------");
+                    new CommonAction().TakeScreenShot();
+                }
             }
             catch (Exception ex)
             {
