@@ -3,6 +3,7 @@ using TechTalk.SpecFlow;
 using Assignment_Aviva_BDD_SpecFlow.Helper;
 using Assignment_Aviva_BDD_SpecFlow.PageFactory;
 using Assignment_Aviva_BDD_SpecFlow.Actions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Assignment_Aviva_BDD_SpecFlow.StepDefination
 {
@@ -54,7 +55,7 @@ namespace Assignment_Aviva_BDD_SpecFlow.StepDefination
                         throw new Exception(validationMessageSequenceNumber);
                     }
                     Console.WriteLine("--------------------------------------------------------------------------------");
-                    Console.WriteLine("The url of fifth result is : " + googleSearchEnginePage.SearchResult[index - 1].GetAttribute("href"));
+                    Console.WriteLine("The url of fifth result is : " + googleSearchEnginePage.SearchResult[index - 1].Text);
                     Console.WriteLine("--------------------------------------------------------------------------------");
                     new CommonAction().TakeScreenShot();
                 }
@@ -66,5 +67,34 @@ namespace Assignment_Aviva_BDD_SpecFlow.StepDefination
                 Console.WriteLine("--------------------------------------------------------------------------------");
             }
         }
+        [Then(@"I should see (.*) links in the first search page")]
+        public void ThenIShouldSeeLinksInTheFirstSearchPage(int LinkCount)
+        {
+            try
+            {
+                int resultsCount = 0;
+                if (!isDataNotProper)
+                {
+                    resultsCount = googleSearchEnginePage.SearchResult.Count;
+                    Console.WriteLine("--------------------------------------------------------------------------------");
+                    Console.WriteLine("Number of search result returned: " + resultsCount);
+                    Assert.IsTrue(LinkCount == resultsCount);
+                    Console.WriteLine("--------------------------------------------------------------------------------");
+                }
+                else
+                {
+                    Console.WriteLine("--------------------------------------------------------------------------------");
+                    Assert.IsTrue(LinkCount == resultsCount);
+                    Console.WriteLine("--------------------------------------------------------------------------------");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("--------------------------------------------------------------------------------");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("--------------------------------------------------------------------------------");
+            }
+        }
+
     }
 }
