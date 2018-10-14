@@ -78,7 +78,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 10
  testRunner.Then("I should see 6 links in the first search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 11
- testRunner.And("I should get 5th result url", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I should get 5th result", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -98,7 +98,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 17
  testRunner.Then("I should see 6 links in the first search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 18
- testRunner.And("I should get 5th result url", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I should get 5th result", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

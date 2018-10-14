@@ -8,11 +8,11 @@ Scenario: Finding 5th search result of a given keyword
 	Given I launch 'http://www.google.com'
 	When I provide 'AVIVA' keyword to search
 	Then I should see 6 links in the first search page
-	And I should get 5th result url
+	And I should get 5th result
 
 @GoogleSearch
 Scenario: Invalid Finding 5th search result of a given keyword
 	Given I launch 'http://www.google.com'
 	When I provide ' ' keyword to search
 	Then I should see 6 links in the first search page
-	And I should get 5th result url
+	And I should get 5th result

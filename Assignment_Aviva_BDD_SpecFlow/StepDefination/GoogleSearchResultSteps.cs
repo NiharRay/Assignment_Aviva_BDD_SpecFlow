@@ -42,7 +42,7 @@ namespace Assignment_Aviva_BDD_SpecFlow.StepDefination
             }
         }
 
-        [Then(@"I should get (.*)th result url")]
+        [Then(@"I should get (.*)th result")]
         public void ThenIShouldGetThResultUrl(int index)
         {
             try
