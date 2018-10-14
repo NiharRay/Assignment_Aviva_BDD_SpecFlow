@@ -10,15 +10,16 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Assignment_Aviva_BDD_SpecFlow
+namespace Assignment_Aviva_BDD_SpecFlow.Features
 {
     using TechTalk.SpecFlow;
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.2.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("GoogleSearchResult", Description="\tIn order to get 5th link on Google Search engine for provided keyword\r\n\tAs a use" +
-        "r I search a keyword in Google\r\n\tI want to see the 5th link as result", SourceFile="GoogleSearchResult.feature", SourceLine=0)]
+    [TechTalk.SpecRun.FeatureAttribute("GoogleSearchResult", new string[] {
+            "GoogleSearch"}, Description="\tIn order to get 5th link on Google Search engine for provided keyword\r\n\tAs a use" +
+        "r I search a keyword in Google\r\n\tI want to see the 5th link as result", SourceFile="Features\\GoogleSearchResult.feature", SourceLine=1)]
     public partial class GoogleSearchResultFeature
     {
         
@@ -32,7 +33,8 @@ namespace Assignment_Aviva_BDD_SpecFlow
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "GoogleSearchResult", "\tIn order to get 5th link on Google Search engine for provided keyword\r\n\tAs a use" +
-                    "r I search a keyword in Google\r\n\tI want to see the 5th link as result", ProgrammingLanguage.CSharp, ((string[])(null)));
+                    "r I search a keyword in Google\r\n\tI want to see the 5th link as result", ProgrammingLanguage.CSharp, new string[] {
+                        "GoogleSearch"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -64,40 +66,40 @@ namespace Assignment_Aviva_BDD_SpecFlow
         }
         
         [TechTalk.SpecRun.ScenarioAttribute("Finding 5th search result of a given keyword", new string[] {
-                "GoogleSearch"}, SourceLine=6)]
+                "PositiveScenario"}, SourceLine=7)]
         public virtual void Finding5ThSearchResultOfAGivenKeyword()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Finding 5th search result of a given keyword", new string[] {
-                        "GoogleSearch"});
-#line 7
-this.ScenarioSetup(scenarioInfo);
+                        "PositiveScenario"});
 #line 8
- testRunner.Given("I launch \'http://www.google.com\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 9
- testRunner.When("I provide \'AVIVA\' keyword to search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("I launch GoogleHomePage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 10
- testRunner.Then("I should see 6 links in the first search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I provide \'AVIVA\' keyword to search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
+ testRunner.Then("I should see 6 links in the first search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 12
  testRunner.And("I should get 5th result", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [TechTalk.SpecRun.ScenarioAttribute("Invalid Finding 5th search result of a given keyword", new string[] {
-                "GoogleSearch"}, SourceLine=13)]
+                "NegativeScenario"}, SourceLine=14)]
         public virtual void InvalidFinding5ThSearchResultOfAGivenKeyword()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Invalid Finding 5th search result of a given keyword", new string[] {
-                        "GoogleSearch"});
-#line 14
-this.ScenarioSetup(scenarioInfo);
+                        "NegativeScenario"});
 #line 15
- testRunner.Given("I launch \'http://www.google.com\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 16
- testRunner.When("I provide \' \' keyword to search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("I launch GoogleHomePage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 17
- testRunner.Then("I should see 6 links in the first search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I provide \'Aviva insurance terms\' keyword to search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 18
+ testRunner.Then("I should not see 6 links in the first search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 19
  testRunner.And("I should get 5th result", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

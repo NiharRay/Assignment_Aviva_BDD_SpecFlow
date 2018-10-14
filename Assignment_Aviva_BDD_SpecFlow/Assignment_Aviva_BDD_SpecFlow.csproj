@@ -81,7 +81,7 @@
     <Compile Include="Actions\CommonAction.cs" />
     <Compile Include="Actions\GoogleSearchEngineAction.cs" />
     <Compile Include="ConfigDataManipulation\TestData.cs" />
-    <Compile Include="GoogleSearchResult.feature.cs">
+    <Compile Include="Features\GoogleSearchResult.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GoogleSearchResult.feature</DependentUpon>
@@ -98,7 +98,7 @@
     <None Include="Default.srprofile">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="GoogleSearchResult.feature">
+    <None Include="Features\GoogleSearchResult.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>GoogleSearchResult.feature.cs</LastGenOutput>
     </None>

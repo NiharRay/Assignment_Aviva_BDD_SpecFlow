@@ -4,6 +4,7 @@ using Assignment_Aviva_BDD_SpecFlow.Helper;
 using Assignment_Aviva_BDD_SpecFlow.PageFactory;
 using Assignment_Aviva_BDD_SpecFlow.Actions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Configuration;
 
 namespace Assignment_Aviva_BDD_SpecFlow.StepDefination
 {
@@ -14,12 +15,13 @@ namespace Assignment_Aviva_BDD_SpecFlow.StepDefination
         Validation validate = new Validation();
         bool isDataNotProper = false;
 
-        [Given(@"I launch '(.*)'")]
-        public void GivenILaunch(string url)
-        {
-            DriverHelper.driver.Navigate().GoToUrl(url);
-            Console.WriteLine("");
-        }
+        //[Given(@"I launch '(.*)'")]
+        //public void GivenILaunch(string url)
+        //{
+        //    url = ConfigurationManager.AppSettings["googleSearchPage"];
+        //    DriverHelper.driver.Navigate().GoToUrl(url);
+        //    Console.WriteLine("");
+        //}
 
         [When(@"I provide '(.*)' keyword to search")]
         public void WhenIProvideKeywordToSearch(string keyword)
@@ -72,18 +74,11 @@ namespace Assignment_Aviva_BDD_SpecFlow.StepDefination
         {
             try
             {
-                int resultsCount = 0;
                 if (!isDataNotProper)
                 {
-                    resultsCount = googleSearchEnginePage.SearchResult.Count;
+                    int resultsCount = googleSearchEnginePage.SearchResult.Count;
                     Console.WriteLine("--------------------------------------------------------------------------------");
                     Console.WriteLine("Number of search result returned: " + resultsCount);
-                    Assert.IsTrue(LinkCount == resultsCount);
-                    Console.WriteLine("--------------------------------------------------------------------------------");
-                }
-                else
-                {
-                    Console.WriteLine("--------------------------------------------------------------------------------");
                     Assert.IsTrue(LinkCount == resultsCount);
                     Console.WriteLine("--------------------------------------------------------------------------------");
                 }
@@ -94,6 +89,33 @@ namespace Assignment_Aviva_BDD_SpecFlow.StepDefination
                 Console.WriteLine(ex.Message);
                 Console.WriteLine("--------------------------------------------------------------------------------");
             }
+        }
+        [Then(@"I should not see (.*) links in the first search page")]
+        public void ThenIShouldNotSeeLinksInTheFirstSearchPage(int LinkCount)
+        {
+            try
+            {
+                if (!isDataNotProper)
+                {
+                    int resultsCount = googleSearchEnginePage.SearchResult.Count;
+                    Console.WriteLine("--------------------------------------------------------------------------------");
+                    Console.WriteLine("Number of search result returned: " + resultsCount);
+                    Assert.AreNotEqual(LinkCount, resultsCount);
+                    Console.WriteLine("--------------------------------------------------------------------------------");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("--------------------------------------------------------------------------------");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("--------------------------------------------------------------------------------");
+            }
+        }
+        [Given(@"I launch GoogleHomePage")]
+        public void GivenILaunchGoogleHomePage()
+        {
+            string url = ConfigurationManager.AppSettings["googleSearchPage"];
+            DriverHelper.driver.Navigate().GoToUrl(url);
         }
 
     }
