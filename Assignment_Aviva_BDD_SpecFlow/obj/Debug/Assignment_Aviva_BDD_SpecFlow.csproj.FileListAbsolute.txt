@@ -14,3 +14,4 @@ C:\Nihar\Work\Assignment_Aviva_BDD_SpecFlow\Assignment_Aviva_BDD_SpecFlow\obj\De
 C:\Nihar\Work\Assignment_Aviva_BDD_SpecFlow\Assignment_Aviva_BDD_SpecFlow\obj\Debug\Assignment_Aviva_BDD_SpecFlow.pdb
 C:\Nihar\Work\Assignment_Aviva_BDD_SpecFlow\Assignment_Aviva_BDD_SpecFlow\bin\Debug\Assignment_Aviva_BDD_SpecFlow.dll.CodeAnalysisLog.xml
 C:\Nihar\Work\Assignment_Aviva_BDD_SpecFlow\Assignment_Aviva_BDD_SpecFlow\bin\Debug\Assignment_Aviva_BDD_SpecFlow.dll.lastcodeanalysissucceeded
+C:\Nihar\Work\Assignment_Aviva_BDD_SpecFlow\Assignment_Aviva_BDD_SpecFlow\obj\Debug\Assignment_Aviva_BDD_SpecFlow.csprojResolveAssemblyReference.cache

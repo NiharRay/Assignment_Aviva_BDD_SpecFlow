@@ -78,7 +78,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 10
  testRunner.When("I provide \'AVIVA UK\' keyword to search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
- testRunner.Then("I should see 7 links in the first search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I should see 6 links in the first search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 12
  testRunner.And("I should get 5th result", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -98,7 +98,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 17
  testRunner.When("I provide \'Aviva insurance terms\' keyword to search", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 18
- testRunner.Then("I should not see 7 links in the first search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I should not see 6 links in the first search page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 19
  testRunner.And("I should get 5th result", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden

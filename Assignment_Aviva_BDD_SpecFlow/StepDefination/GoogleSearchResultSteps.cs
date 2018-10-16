@@ -38,9 +38,7 @@ namespace Assignment_Aviva_BDD_SpecFlow.StepDefination
             }
             catch(Exception ex)
             {
-                Console.WriteLine("--------------------------------------------------------------------------------");
                 Console.WriteLine(ex.Message);
-                Console.WriteLine("--------------------------------------------------------------------------------");
             }
         }
 
@@ -56,17 +54,13 @@ namespace Assignment_Aviva_BDD_SpecFlow.StepDefination
                     {
                         throw new Exception(validationMessageSequenceNumber);
                     }
-                    Console.WriteLine("--------------------------------------------------------------------------------");
                     Console.WriteLine("The url of fifth result is : " + googleSearchEnginePage.SearchResult[index - 1].Text);
-                    Console.WriteLine("--------------------------------------------------------------------------------");
                     new CommonAction().TakeScreenShot();
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("--------------------------------------------------------------------------------");
                 Console.WriteLine(ex.Message);
-                Console.WriteLine("--------------------------------------------------------------------------------");
             }
         }
         [Then(@"I should see (.*) links in the first search page")]
@@ -77,17 +71,13 @@ namespace Assignment_Aviva_BDD_SpecFlow.StepDefination
                 if (!isDataNotProper)
                 {
                     int resultsCount = googleSearchEnginePage.SearchResult.Count;
-                    Console.WriteLine("--------------------------------------------------------------------------------");
                     Console.WriteLine("Number of search result returned: " + resultsCount);
                     Assert.IsTrue(LinkCount == resultsCount);
-                    Console.WriteLine("--------------------------------------------------------------------------------");
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("--------------------------------------------------------------------------------");
                 Console.WriteLine(ex.Message);
-                Console.WriteLine("--------------------------------------------------------------------------------");
             }
         }
         [Then(@"I should not see (.*) links in the first search page")]
@@ -98,17 +88,13 @@ namespace Assignment_Aviva_BDD_SpecFlow.StepDefination
                 if (!isDataNotProper)
                 {
                     int resultsCount = googleSearchEnginePage.SearchResult.Count;
-                    Console.WriteLine("--------------------------------------------------------------------------------");
                     Console.WriteLine("Number of search result returned: " + resultsCount);
                     Assert.AreNotEqual(LinkCount, resultsCount);
-                    Console.WriteLine("--------------------------------------------------------------------------------");
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("--------------------------------------------------------------------------------");
                 Console.WriteLine(ex.Message);
-                Console.WriteLine("--------------------------------------------------------------------------------");
             }
         }
         [Given(@"I launch GoogleHomePage")]
